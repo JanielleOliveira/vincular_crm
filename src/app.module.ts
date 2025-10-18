@@ -1,7 +1,13 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { Cliente } from './cliente/cliente.entity';
+import { Contato } from './contato/contato.entity';
+import { Oportunidade } from './oportunidade/oportunidade.entity';
 
 @Module({
+  //Array de módulos importados por este módulo.
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql', // tipo do banco
@@ -10,11 +16,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: 'root',
       password: 'root',
       database: 'db_crm', // nome do banco
-      entities: [],
+      entities: [Cliente, Contato, Oportunidade], //Adiciona as entidades ao array para que o TypeORM as reconheça
       synchronize: true, // cria as tabelas automaticamente
+      logging: true, //Quando 'true', exibe as queries SQL executadas no console.
     }),
   ],
-  controllers: [],
-  providers: [],
+  controllers: [AppController], //Controladores (endpoints da API).
+  providers: [AppService], //lógica de negócios.
 })
 export class AppModule {}
