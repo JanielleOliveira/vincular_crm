@@ -6,7 +6,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 //Importa a entidade Cliente para criar o relacionamento.
-import { Cliente } from '../cliente/cliente.entity';
+import { Cliente } from '../cliente/entities/cliente.entity';
 
 //Mapeia esta classe para uma tabela MySQL chamada 'tb_contato'.
 @Entity({ name: 'tb_contato' })

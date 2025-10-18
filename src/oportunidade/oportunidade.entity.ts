@@ -5,7 +5,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Cliente } from '../cliente/cliente.entity';
+import { Cliente } from '../cliente/entities/cliente.entity';
 import { Contato } from '../contato/contato.entity';
 
 //Enumeração para o status, garantindo valores consistentes.
