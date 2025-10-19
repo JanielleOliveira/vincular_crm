@@ -6,7 +6,8 @@ import { ClienteModule } from './cliente/cliente.module';
 import { Cliente } from './cliente/entities/cliente.entity';
 import { ContatoModule } from './contato/contato.module';
 import { Contato } from './contato/entities/contato.entity';
-import { Oportunidade } from './oportunidade/oportunidade.entity';
+import { Oportunidade } from './oportunidade/entities/oportunidade.entity';
+import { OportunidadeModule } from './oportunidade/oportunidade.module';
 
 @Module({
   //Array de módulos importados por este módulo.
@@ -24,6 +25,7 @@ import { Oportunidade } from './oportunidade/oportunidade.entity';
     }),
     ClienteModule,
     ContatoModule,
+    OportunidadeModule,
   ],
   controllers: [AppController], //Controladores (endpoints da API).
   providers: [AppService], //lógica de negócios.

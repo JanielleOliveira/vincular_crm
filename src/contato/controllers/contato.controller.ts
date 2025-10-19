@@ -48,7 +48,7 @@ export class ContatoController {
   // DELETE /contato/:id
   @Delete(':id')
   @HttpCode(204)
-  async remove(@Param('id') id: string): Promise<void> {
-    return this.contatoService.remove(+id);
+  async delete(@Param('id') id: string): Promise<void> {
+    return this.contatoService.delete(+id);
   }
 }

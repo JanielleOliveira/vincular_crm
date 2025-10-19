@@ -1,7 +1,7 @@
 import { IsNotEmpty } from 'class-validator';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Contato } from '../../contato/entities/contato.entity';
-import { Oportunidade } from '../../oportunidade/oportunidade.entity';
+import { Oportunidade } from '../../oportunidade/entities/oportunidade.entity';
 
 //O decorador @Entity('cliente') mapeia esta classe para uma tabela MySQL chamada 'tb_cliente'.
 @Entity({ name: 'tb_cliente' })

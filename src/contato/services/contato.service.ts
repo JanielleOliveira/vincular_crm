@@ -79,7 +79,7 @@ export class ContatoService {
   }
 
   // --- 5. DELETE (Exclusão) ---
-  async remove(id: number): Promise<void> {
+  async delete(id: number): Promise<void> {
     await this.findOne(id);
     await this.contatoRepository.delete(id);
   }

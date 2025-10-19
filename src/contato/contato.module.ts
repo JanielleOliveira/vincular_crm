@@ -11,5 +11,6 @@ import { ContatoService } from './services/contato.service';
   imports: [TypeOrmModule.forFeature([Contato]), ClienteModule],
   controllers: [ContatoController],
   providers: [ContatoService],
+  exports: [ContatoService],
 })
 export class ContatoModule {}
