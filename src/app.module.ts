@@ -4,7 +4,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ClienteModule } from './cliente/cliente.module';
 import { Cliente } from './cliente/entities/cliente.entity';
-import { Contato } from './contato/contato.entity';
+import { ContatoModule } from './contato/contato.module';
+import { Contato } from './contato/entities/contato.entity';
 import { Oportunidade } from './oportunidade/oportunidade.entity';
 
 @Module({
@@ -22,6 +23,7 @@ import { Oportunidade } from './oportunidade/oportunidade.entity';
       logging: true, //Quando 'true', exibe as queries SQL executadas no console.
     }),
     ClienteModule,
+    ContatoModule,
   ],
   controllers: [AppController], //Controladores (endpoints da API).
   providers: [AppService], //lógica de negócios.

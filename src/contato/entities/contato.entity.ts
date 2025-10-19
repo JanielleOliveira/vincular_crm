@@ -5,8 +5,8 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { Cliente } from '../../cliente/entities/cliente.entity';
 //Importa a entidade Cliente para criar o relacionamento.
-import { Cliente } from '../cliente/entities/cliente.entity';
 
 //Mapeia esta classe para uma tabela MySQL chamada 'tb_contato'.
 @Entity({ name: 'tb_contato' })

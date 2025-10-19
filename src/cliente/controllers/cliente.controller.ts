@@ -13,7 +13,7 @@ import { UpdateClienteDto } from '../dto/update-cliente.dto';
 import { Cliente } from '../entities/cliente.entity';
 import { ClienteService } from '../services/cliente.service';
 
-//Define o caminho base para todas as rotas deste Controller (ex: /cliente).
+//Define o caminho base para todas as rotas deste Controller (ex: /clientes).
 @Controller('/clientes')
 export class ClienteController {
   constructor(private readonly clienteService: ClienteService) {}
