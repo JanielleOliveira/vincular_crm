@@ -10,6 +10,8 @@ import { ContatoModule } from './contato/contato.module';
 import { Contato } from './contato/entities/contato.entity';
 import { Oportunidade } from './oportunidade/entities/oportunidade.entity';
 import { OportunidadeModule } from './oportunidade/oportunidade.module';
+import { ChamadoModule } from './chamado/chamado.module';
+import { Chamado } from './chamado/entities/chamado.entity';
 
 @Module({
   imports: [
@@ -32,7 +34,7 @@ import { OportunidadeModule } from './oportunidade/oportunidade.module';
         password: configService.get<string>('DATABASE_PASSWORD'),
         database: configService.get<string>('DATABASE_NAME'),
 
-        entities: [Cliente, Contato, Oportunidade],
+        entities: [Cliente, Contato, Oportunidade, Chamado],
         synchronize: true,
         logging: true,
       }),
@@ -42,6 +44,7 @@ import { OportunidadeModule } from './oportunidade/oportunidade.module';
     ClienteModule,
     ContatoModule,
     OportunidadeModule,
+    ChamadoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
