@@ -46,7 +46,7 @@ export class ClienteService {
     return this.clienteRepository.save(clienteExistente);
   }
 
-  async remove(id: number): Promise<void> {
+  async delete(id: number): Promise<void> {
     await this.findOne(id);
     await this.clienteRepository.delete(id);
     // Nota: Por termos 'cascade: true' na entidade, a exclusão do cliente deve automaticamente excluir Contatos e Oportunidades associadas.

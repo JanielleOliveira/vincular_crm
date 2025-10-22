@@ -48,7 +48,7 @@ export class ClienteController {
 
   @Delete(':id')
   @HttpCode(204)
-  async remove(@Param('id') id: string): Promise<void> {
-    return this.clienteService.remove(+id);
+  async delete(@Param('id') id: string): Promise<void> {
+    return this.clienteService.delete(+id);
   }
 }

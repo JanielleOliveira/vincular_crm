@@ -20,6 +20,10 @@ export class Cliente {
   @Column({ type: 'varchar', length: 18, unique: true, nullable: false })
   cnpj: string;
 
+  //Coluna para o segmento da empresa.
+  @Column({ type: 'varchar', length: 255, nullable: true })
+  segmento: string;
+
   //Coluna para o endereço da empresa.
   @Column({ type: 'varchar', length: 255, nullable: true })
   endereco: string;
