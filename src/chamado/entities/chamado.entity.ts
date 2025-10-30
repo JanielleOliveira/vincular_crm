@@ -23,6 +23,13 @@ export enum ChamadoTipo {
   DUVIDA = 'Dúvida',
 }
 
+//Enumeração para a prioridade do chamdo
+export enum PrioridadeChamado {
+  ALTA = 'Alta',
+  MEDIA = 'Média',
+  BAIXA = 'Baixa',
+}
+
 @Entity({ name: 'tb_chamado' })
 export class Chamado {
   @PrimaryGeneratedColumn()
@@ -47,6 +54,14 @@ export class Chamado {
     default: ChamadoTipo.DUVIDA,
   })
   tipo: ChamadoTipo;
+
+  // ADIÇÃO CRUCIAL: Coluna Prioridade
+  @Column({
+    type: 'enum',
+    enum: PrioridadeChamado,
+    default: PrioridadeChamado.BAIXA, // Define um valor padrão
+  })
+  prioridade: PrioridadeChamado;
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   dataAbertura: Date;

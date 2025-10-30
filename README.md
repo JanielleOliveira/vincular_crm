@@ -1,98 +1,73 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 📂 Vincular: Sistema Integrado de Gestão de Clientes e Serviços (CRM/Service Desk)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## 💡 Sobre o Projeto
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Este projeto consiste em um sistema back-end robusto, desenvolvido para gerenciar de forma centralizada as atividades críticas de relacionamento com o cliente: o **funil de vendas (CRM)** e o **suporte técnico (Service Desk)**. O foco é fornecer uma API REST coesa para que front-ends e outras aplicações possam interagir com dados de Oportunidades e Chamados.
 
-## Description
+## 📈 Modelo de Negócio
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+O sistema suporta a operação de empresas que vendem produtos ou serviços e que necessitam de:
 
-## Project setup
+* **Gestão de Pipeline (CRM):** Acompanhamento do ciclo de vida de cada oportunidade de venda (Prospecção, Qualificação, Proposta, Ganho/Perdido).
+* **Gestão de Suporte (Service Desk):** Monitoramento da qualidade do serviço pós-venda, com foco no cumprimento de prazos contratuais e eficiência operacional (SLA e TMA).
 
+## ✅ Por Que Usar Este Sistema?
+
+* **Decuplamento de Camadas:** Utiliza o padrão DTO para garantir que a API seja segura e desacoplada do modelo de dados interno.
+* **Controle de Qualidade:** Permite o registro e o cálculo de indicadores cruciais, como SLA (Acordo de Nível de Serviço) e TMA (Tempo Médio de Atendimento).
+* **Integração Flexível:** Oferece endpoints RESTful prontos para serem consumidos por qualquer aplicação front-end (web, mobile, etc.).
+
+## 🚀 Funcionalidades Principais
+
+* **Controle de Oportunidades:** CRUD completo para registrar, atualizar e finalizar oportunidades de negócio, utilizando o `ENUM` de status (`Prospecção`, `Qualificação`, `Proposta Enviada`, `Ganho`, `Perdido`).
+* **Gestão de Chamados:** Rastreamento de solicitações de suporte (`tb_chamado`), registrando status e prioridade para monitoramento de prazos de solução.
+* **Cadastro de Entidades:** Gerenciamento centralizado de `tb_cliente` (PJ) e `tb_contato` (Pessoa física).
+* **Segurança de Dados:** Implementação de classes de transferência (**DTO** - *Data Transfer Object*) para expor apenas os dados necessários.
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Back-end:** Node.js + NestJS (TypeScript)  
+- **Banco de Dados:** MySQL com TypeORM  
+- **Arquitetura:** API RESTful com suporte a operações CRUD completas 
+
+## ⚙️ Como Rodar o Projeto
+
+1. **Clonar o repositório**
+
+   ```bash
+   git clone https://github.com/JanielleOliveira/vincular_crm.git
+
+---
+2. **Instalar dependências**
+  ```bash
+  npm install
+````
+---
+3. **Criar o banco de dados no MySQL Workbench**
 ```bash
-$ npm install
-```
-
-## Compile and run the project
-
+create database db_crm;
+````
+---
+4. **Configurar o arquivo .env**
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Run tests
-
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=seu_usuario
+DB_PASS=sua_senha
+DB_NAME=db_crm
+````
+---
+5. **Iniciar o servidor**
 ```bash
-# unit tests
-$ npm run test
+npm run start:dev
+````
 
-# e2e tests
-$ npm run test:e2e
+## ➡️ Próximos Passos (Evolução)
 
-# test coverage
-$ npm run test:cov
-```
+* **Autenticação e Autorização:** Implementar segurança na API utilizando JWT (JSON Web Tokens).
+* **Cálculo Automático de TMA/SLA:** Desenvolver lógica no back-end para calcular e persistir automaticamente o TMA (Tempo Médio de Atendimento) para chamados fechados.
+* **Publicar API em ambiente cloud (Render,Vercel ou Railway)**
+* **Desenvolver interface front-end.**
 
-## Deployment
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+***
